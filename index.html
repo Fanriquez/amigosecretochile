@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Amigo Secreto 🎁</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <!-- Pantalla inicial: añadir jugadores -->
+    <section id="setup" class="card active">
+      <h1>Amigo Secreto 🎁✨</h1>
+      <p class="lead">Añade los participantes y comienza la diversión. ¡Que empiece el misterio! 🕵️‍♀️</p>
+
+      <div class="add-area">
+        <input id="nameInput" placeholder="Escribe un nombre (Pulsa Enter o +)" />
+        <button id="addBtn" class="btn">+</button>
+      </div>
+
+      <ul id="playersList" class="players-list"></ul>
+
+      <div class="controls">
+        <button id="startBtn" class="btn primary" disabled>Comenzar juego ▶️</button>
+        <button id="resetBtn" class="btn ghost">Reiniciar 🔄</button>
+      </div>
+
+      <p class="hint">Consejo: mínimo 2 personas. Si son 2, se intercambian entre sí. 😉</p>
+    </section>
+
+    <!-- Pantalla de turno: pide pasar el dispositivo -->
+    <section id="turnScreen" class="card">
+      <h2>Turno de escoger</h2>
+      <p class="big">Es el turno de: <strong id="currentGiver">Nombre</strong> 🎯</p>
+      <p class="small">No puede repetirse (quien ya haya dado un regalo no podrá volver a dar). Pasa el dispositivo a esa persona para mantener el secreto 🔒</p>
+      <div class="controls">
+        <button id="toSecretBtn" class="btn primary">Ir a zona secreta 🤫</button>
+        <button id="backToListBtn" class="btn ghost">Ver lista (opcional)</button>
+      </div>
+      <div id="remainingContainer" class="remaining">
+        <h4>Quedan posibles receptores:</h4>
+        <ul id="remainingList"></ul>
+      </div>
+    </section>
+
+    <!-- Pantalla secreta: revela el amigo secreto -->
+    <section id="secretScreen" class="card">
+      <div class="confetti"></div>
+      <h2>¡Zona secreta! 🤫</h2>
+      <p class="reveal-text">Para <strong id="giverReveal">Nombre</strong>, su Amigo Secreto es...</p>
+      <div id="recipientReveal" class="recipient">—</div>
+      <div class="controls">
+        <button id="nextBtn" class="btn primary">¡Entendido! Siguiente ▶️</button>
+      </div>
+    </section>
+
+    <!-- Pantalla final -->
+    <section id="endScreen" class="card">
+      <h2>Juego finalizado 🎉</h2>
+      <p class="lead">Todos entregaron su regalo. ¿Quieres ver el resumen?</p>
+      <div class="controls">
+        <button id="showPairsBtn" class="btn">Ver pares secretos 📜</button>
+        <button id="playAgainBtn" class="btn ghost">Jugar otra vez 🔁</button>
+      </div>
+
+      <div id="pairsContainer" class="pairs hidden">
+        <h3>Resumen de pares</h3>
+        <ul id="pairsList"></ul>
+        <p class="small">Comparte esta lista sólo si ya no quieres que sea secreto 😉</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">Diseñado con ❤️ — ¡Que gane el mejor regalo!</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
